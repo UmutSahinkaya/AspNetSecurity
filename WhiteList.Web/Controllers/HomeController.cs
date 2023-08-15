@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System.Diagnostics;
+using WhiteList.Web.Filters;
 using WhiteList.Web.Models;
 
 namespace WhiteList.Web.Controllers
 {
+    [ServiceFilter(typeof(CheckWhiteList))]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,6 +16,7 @@ namespace WhiteList.Web.Controllers
             _logger = logger;
         }
 
+        //[ServiceFilter(typeof(CheckWhiteList))]
         public IActionResult Index()
         {
             return View();

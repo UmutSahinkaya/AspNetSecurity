@@ -1,9 +1,10 @@
+using WhiteList.Web.Filters;
 using WhiteList.Web.MiddleWares;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<IPList>(builder.Configuration.GetSection("IPList"));
-
+builder.Services.AddScoped<CheckWhiteList>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 var app = builder.Build();
