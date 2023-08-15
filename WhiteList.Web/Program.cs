@@ -1,18 +1,11 @@
-using DataProtection.Web.Models;
-using Microsoft.EntityFrameworkCore;
+using WhiteList.Web.MiddleWares;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.Configure<IPList>(builder.Configuration.GetSection("IPList"));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddDbContext<ExampleSecurityDbContext>(opts =>
-{
-    opts.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ExampleSecurityDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
-});
-//DataProtection
-builder.Services.AddDataProtection();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,6 +22,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseMiddleware<IPSafeMiddleWare>();
 
 app.MapControllerRoute(
     name: "default",
