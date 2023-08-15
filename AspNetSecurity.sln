@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWeb.API", "MyWeb.API\MyWe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWeb.Web", "MyWeb.Web\MyWeb.Web.csproj", "{9AF2E10E-9164-4794-B4F6-F0421AD2C8C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSS.Web", "XSS.Web\XSS.Web.csproj", "{91E9EB82-6379-4E99-B723-B53572E41A94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9AF2E10E-9164-4794-B4F6-F0421AD2C8C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AF2E10E-9164-4794-B4F6-F0421AD2C8C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AF2E10E-9164-4794-B4F6-F0421AD2C8C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91E9EB82-6379-4E99-B723-B53572E41A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E9EB82-6379-4E99-B723-B53572E41A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E9EB82-6379-4E99-B723-B53572E41A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E9EB82-6379-4E99-B723-B53572E41A94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
