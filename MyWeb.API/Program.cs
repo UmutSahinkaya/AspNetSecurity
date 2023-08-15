@@ -1,10 +1,26 @@
+using Microsoft.Net.Http.Headers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(opt =>
 {
-    opt.AddDefaultPolicy(builder =>
+    opt.AddPolicy("AllowSites",builder =>
     {
-        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        builder.WithOrigins("https://localhost:44384").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+
+    //opt.AddPolicy("AllowSites2", builder =>
+    //{
+    //    builder.WithOrigins("https://www.mysite.com").WithHeaders(HeaderNames.ContentType, "x-custom-header");
+    //});
+    //opt.AddPolicy("AllowSites3", builder =>
+    //{
+    //    builder.WithOrigins("https://*.example.com").SetIsOriginAllowedToAllowWildcardSubdomains().AllowAnyHeader();
+    //});
+    opt.AddPolicy("AllowSites4", builder =>
+    {
+        builder.WithOrigins("https://localhost:44384").WithMethods("POST","GET").AllowAnyHeader();
+        builder.AllowCredentials();
     });
 });
 // Add services to the container.

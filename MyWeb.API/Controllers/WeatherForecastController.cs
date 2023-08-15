@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MyWeb.API.Controllers
 {
+    [EnableCors("AllowSites4")]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -18,6 +20,8 @@ namespace MyWeb.API.Controllers
             _logger = logger;
         }
 
+        //[EnableCors("AllowSites4")]
+        //[DisableCors]
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
