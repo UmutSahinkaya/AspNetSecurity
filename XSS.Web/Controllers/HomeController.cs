@@ -41,6 +41,26 @@ namespace XSS.Web.Controllers
             System.IO.File.AppendAllText("comment.txt", $"{name}-{comment}\n");
             return Redirect("CommentAdd");
         }
+
+        public IActionResult Login(string returnUrl="/")
+        {
+            TempData["returnUrl"] = returnUrl; 
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login(string email,string password)
+        {
+            string returnUrl = TempData["returnUrl"].ToString();
+
+            //email ve password kontrolü 
+
+            if(Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+            else
+                return View("/");
+
+        }
+
         public IActionResult Index()
         {
             return View();
