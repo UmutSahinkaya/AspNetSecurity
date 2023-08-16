@@ -1,7 +1,12 @@
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(opts =>
+{
+    opts.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());//Bu filter eklendikten sonra artýk her "POST" methodunun üzerinde belirtmemize gerek kalmayacak!!!
+});
 
 var app = builder.Build();
 

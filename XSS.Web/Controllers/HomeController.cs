@@ -30,17 +30,17 @@ namespace XSS.Web.Controllers
 
             return View();
         }
+        //[ValidateAntiForgeryToken]
+        [IgnoreAntiforgeryToken]
         [HttpPost]
         public IActionResult CommentAdd(string name, string comment)
         {
-            string encodeName = _urlEncoder.Encode(name);
             ViewBag.Name = name;
             ViewBag.Comment = comment;
 
             System.IO.File.AppendAllText("comment.txt", $"{name}-{comment}\n");
             return Redirect("CommentAdd");
         }
-
         public IActionResult Index()
         {
             return View();
@@ -72,6 +72,31 @@ namespace XSS.Web.Controllers
         //[HttpPost]
         //public IActionResult CommentAdd(string name, string comment)
         //{
+        //    ViewBag.Name = name;
+        //    ViewBag.Comment = comment;
+
+        //    System.IO.File.AppendAllText("comment.txt", $"{name}-{comment}\n");
+        //    return Redirect("CommentAdd");
+        //}
+        #endregion
+        #region Html,javascript,Url encoder
+        //public IActionResult CommentAdd()
+        //{
+        //    HttpContext.Response.Cookies.Append("email", "ahmetsahin@gmail.com");
+        //    HttpContext.Response.Cookies.Append("password", "asdasd1A.");
+
+        //    if (System.IO.File.Exists("comment.txt"))
+        //    {
+        //        ViewBag.comments = System.IO.File.ReadAllLines("comment.txt");
+        //    }
+
+        //    return View();
+        //}
+        //[HttpPost]
+        //public IActionResult CommentAdd(string name, string comment)
+        //{
+        //    string encodeName = _urlEncoder.Encode(name);
+
         //    ViewBag.Name = name;
         //    ViewBag.Comment = comment;
 
