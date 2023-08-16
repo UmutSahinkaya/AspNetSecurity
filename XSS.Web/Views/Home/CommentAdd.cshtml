@@ -16,9 +16,19 @@
         <textarea name="comment"></textarea><br />
         <input type="submit" value="Yorum Gönder"/>
     </form>
-    <h1>Yorumlar</h1>
+    @*<h1>Yorumlar</h1>
     <strong>@ViewBag.Name</strong>
     <hr />
-    <span>@Html.Raw(@ViewBag.Comment)</span> @*--Html Raw saldırıklara karşı hazırlıksız bırakır*@
+    <span>@Html.Raw(@ViewBag.Comment)</span> @*--Html Raw saldırılara karşı hazırlıksız bırakır*@
+    <h1>Yorumlar</h1>
+    @if (ViewBag.comments != null)
+    {
+        foreach (var item in ViewBag.comments as string[])
+        {
+            @*<span>@item</span><hr />*@
+            <span>@Html.Raw(item)</span><hr />
+        }
+    }
+
 </body>
 </html>

@@ -1,0 +1,9 @@
+Umut-yorum1
+Umut-yorum 2
+Umut-yorum 2
+Umut-yorum 2
+asd-asdasd
+asd-asdasd
+ASD-ASDASD
+ahmet-<script>alert('Merhaba')</script>
+<b>Yorumlar çok güzel</b>
