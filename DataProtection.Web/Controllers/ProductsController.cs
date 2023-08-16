@@ -36,7 +36,15 @@ namespace DataProtection.Web.Controllers
             });
             return View(products);
         }
-
+        [HttpPost]
+        public IActionResult Index(string searchText)
+        {
+            //var product=_context.Products.Where(x=>x.Name==searchText).ToList();
+            //var product=_context.Products.FromSqlRaw("Select * from Products Where Name="+"'"+searchText+"'").ToList(); ////Sql Injection zaafiyeti
+            var product = _context.Products.FromSqlRaw("select * from products where name={0}", searchText).ToList();
+            //var product = _context.Products.FromSqlInterpolated($"select * from products where Name={searchText}").ToList() ; 
+            return View(product);
+        }
         // GET: Products/Details/5
         public async Task<IActionResult> Details(string id)
         {
